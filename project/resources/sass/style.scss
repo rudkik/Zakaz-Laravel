@@ -1,0 +1,48 @@
+@import "helpers/reset";
+
+@import "helpers/mixins";
+@import "helpers/vars";
+
+//Swiper
+@import "node_modules/swiper/swiper";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    font: 15px/25px Montserrat,Arial,sans-serif;
+    .container{
+        width: 100%;
+        max-width: 1408px;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+    }
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        height: 136px;
+        align-items: center;
+        justify-content: space-between;
+        .header-wrapper{
+            .container{
+                .row{
+                    .col-md-12{
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+    main{
+        margin-top: 136px;
+    }
+}
+
+
+
+
+
