@@ -5398,8 +5398,8 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
     $('.menu-user').click(function () {
       $(this).toggleClass('active');
     });
-    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperPrice', {
-      slidesPerView: 3,
+    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperBanner', {
+      slidesPerView: 1,
       spaceBetween: 30,
       breakpoints: {
         320: {
@@ -5407,9 +5407,13 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
           spaceBetween: 20
         },
         1080: {
-          slidesPerView: 3,
+          slidesPerView: 1,
           spaceBetween: 30
         }
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       }
     });
     var swiper2 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperVideo', {

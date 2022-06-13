@@ -38,8 +38,8 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
             $(this).toggleClass('active');
         });
 
-        const swiper = new Swiper('.swiperPrice', {
-            slidesPerView: 3,
+        const swiper = new Swiper('.swiperBanner', {
+            slidesPerView: 1,
             spaceBetween: 30,
             breakpoints: {
                 320: {
@@ -47,10 +47,14 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
                     spaceBetween: 20
                 },
                 1080: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 30
                 }
-            }
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
         })
         const swiper2 = new Swiper('.swiperVideo', {
             slidesPerView: 3,

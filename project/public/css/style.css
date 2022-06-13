@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap);
 @charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
 h6,
@@ -10617,28 +10618,215 @@ textarea.form-control-lg {
   }
 }
 body {
-  font: 15px/25px Montserrat, Arial, sans-serif;
+  font-family: "Manrope", sans-serif;
+}
+body a {
+  text-decoration: none;
+  color: #000;
 }
 body .container {
   width: 100%;
+  height: 100%;
   max-width: 1408px;
   margin: 0 auto;
-  padding: 10px;
   position: relative;
 }
 body header {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 20;
-  height: 136px;
   align-items: center;
   justify-content: space-between;
 }
+body header .header-wrapper {
+  height: 100px;
+  overflow: hidden;
+}
 body header .header-wrapper .container .row .col-md-12 {
   display: flex;
+  height: 100px;
+  align-items: center;
 }
-body main {
-  margin-top: 136px;
+body header .header-wrapper .container .row .col-md-12 .region__header, body header .header-wrapper .container .row .col-md-12 .search__header, body header .header-wrapper .container .row .col-md-12 .basket__header {
+  height: 100px;
+}
+body header .header-wrapper .container .row .col-md-12 .region__header {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 20px;
+}
+body header .header-wrapper .container .row .col-md-12 .search__header {
+  border: 1px solid #DCDCDC;
+  border-radius: 10px;
+  height: 43px;
+  width: 464px;
+  margin-left: 163px;
+}
+body header .header-wrapper .container .row .col-md-12 .search__header input {
+  height: 40px;
+  width: 410px;
+}
+body header .header-wrapper .container .row .col-md-12 .search__header .submit {
+  font-size: 0;
+  height: 43px;
+  width: 43px;
+  background: url(/images/search.svg?30e710c37b169743bc383fbc552fe8bc);
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  transform: translateY(-4px);
+}
+body header .header-wrapper .container .row .col-md-12 .basket__header {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body header .header-wrapper .container .row .col-md-12 .basket__header .basket {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+body header .header-wrapper .container .row .col-md-12 .basket__header a {
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 16px;
+}
+body header .menu-wrapper {
+  height: 80px;
+  background: #004889;
+}
+body header .menu-wrapper .header__menu {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+body header .menu-wrapper .header__menu li {
+  padding: 14px 25px;
+  border-radius: 10px;
+}
+body header .menu-wrapper .header__menu li:first-child svg {
+  transform: translateY(-4px);
+  margin-right: 7px;
+}
+body header .menu-wrapper .header__menu li:hover {
+  transition: 1s;
+  border: 1px solid #FFFFFF;
+}
+body header .menu-wrapper .header__menu li a {
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+body header .menu-wrapper .phone-block__header {
+  float: right;
+  text-align: center;
+  padding-top: 7px;
+}
+body header .menu-wrapper .phone-block__header a {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 22px;
+}
+body header .menu-wrapper .phone-block__header p {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 16px;
+}
+body main .banner {
+  margin-top: 30px;
+}
+body main .banner .swiperBanner {
+  width: 914px;
+  height: 555px;
+  border-radius: 10px;
+}
+body main .banner .swiperBanner .slide {
+  position: relative;
+}
+body main .banner .swiperBanner .slide .text {
+  position: absolute;
+  font-weight: 700;
+  font-size: 46px;
+  width: 649px;
+  color: white;
+  top: 58px;
+  left: 62px;
+}
+body main .banner .swiperBanner .slide a {
+  top: 407px;
+  left: 60px;
+  width: 252px;
+  height: 61px;
+  position: absolute;
+  padding: 17px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  bottom: 0;
+  transition: 1s;
+}
+body main .banner .swiperBanner .slide a:hover {
+  background: white;
+  color: black;
+  transition: 1s;
+}
+body main .banner .swiperBanner .slide a:nth-child(2) {
+  left: 325px;
+}
+body main .banner .bigpost {
+  width: 453px;
+  height: 555px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+body main .banner .bigpost:hover img {
+  display: block;
+  transform: scale(1.2);
+}
+body main .banner .bigpost img {
+  transition: 1s;
+  display: block;
+}
+body main .banner .bigpost p {
+  position: absolute;
+  padding-top: 58px;
+  padding-left: 36px;
+  font-weight: 700;
+  font-size: 40px;
+  color: white;
+  z-index: 20;
+}
+body main .banner .smallBanner {
+  width: 453px;
+  height: 325px;
+  background: url(/images/smallBaner.svg?7375c377717cf9ed9f12c6e57079d7dd);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+body main .banner .smallBanner:hover img {
+  transform: scale(1.2);
+}
+body main .banner .smallBanner img {
+  transition: 1s;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+body main .banner .smallBanner p {
+  position: absolute;
+  top: 42px;
+  left: 24px;
+  font-weight: 700;
+  font-size: 30px;
+  color: black;
+}
+body main .advantage {
+  margin-top: 20px;
 }
