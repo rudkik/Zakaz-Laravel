@@ -41,7 +41,7 @@
                             <a href="{{route('main')}}" class="menu__item">Каталог</a>
                             @include('popup.category')
                         </li>
-                        <li><a href="{{route('main')}}" class="menu__item">Акции</a></li>
+                        <li><a href="{{route('stocks')}}" class="menu__item">Акции</a></li>
                         <li><a href="{{route('company')}}" class="menu__item">Компания</a></li>
                         <li><a href="{{route('contacts')}}" class="menu__item">Контакты</a></li>
                     </ul>

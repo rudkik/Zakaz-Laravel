@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend;
-use App\Http\Controllers\Company;
-use App\Http\Controllers\Contacts;
+use App\Http\Controllers\Admin\AdminContact;
+use App\Http\Controllers\Admin\AdminStock;
 use App\Http\Controllers\Category;
 use App\Http\Controllers\Product;
-use App\Http\Controllers\Stock;
+use App\Http\Controllers\Stocks;
+use App\Http\Controllers\Contact;
+use App\Http\Controllers\Company;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,8 @@ use App\Http\Controllers\Stock;
 Route::get('/', [Frontend::class, 'index'])->name('main');
 
 Route::get('/company', [Company::class, 'index'])->name('company');
-Route::get('/contacts', [Company::class, 'index'])->name('contacts');
+Route::get('/contacts', [Contact::class, 'index'])->name('contacts');
+Route::get('/stocks', [Stocks::class, 'index'])->name('stocks');
 
 //Multi
 //Route::get('/', [Frontend::class, 'index'])->name('index');
@@ -30,6 +33,24 @@ Route::get('/contacts', [Company::class, 'index'])->name('contacts');
 
 
 //Request
+
+
+//Admin
+
+Route::get('/admin/contacts', [AdminContact::class, 'index'])->name('admin-contacts');
+Route::get('/admin/contacts/new', [AdminContact::class, 'contactNew'])->name('admin-contacts-new');
+Route::post('/admin/contacts/create', [AdminContact::class, 'contactCreate'])->name('admin-contacts-create');
+Route::get('/admin/contacts/{id}/update', [AdminContact::class, 'contactUpdate'])->name('admin-contact-update');
+Route::post('/admin/contacts/{id}/update', [AdminContact::class, 'contactUpdateSubmit'])->name('admin-contact-submit');
+Route::get('/admin/contacts/{id}/delete', [AdminContact::class, 'contactDelete'])->name('admin-contact-delete');
+
+
+Route::get('/admin/stocks', [AdminStock::class, 'index'])->name('admin-stocks');
+Route::get('/admin/stock/new', [AdminStock::class, 'stockNew'])->name('admin-stock-new');
+Route::post('/admin/stock/create', [AdminStock::class, 'stockCreate'])->name('admin-stock-create');
+Route::get('/admin/stock/{id}/update', [AdminStock::class, 'stockUpdate'])->name('admin-stock-update');
+Route::post('/admin/stock/{id}/update', [AdminStock::class, 'stockUpdateSubmit'])->name('admin-stock-submit');
+Route::get('/admin/stock/{id}/delete', [AdminStock::class, 'stockDelete'])->name('admin-stock-delete');
 
 
 
