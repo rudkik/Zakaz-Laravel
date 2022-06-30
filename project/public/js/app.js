@@ -5398,7 +5398,7 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
     $('.menu-user').click(function () {
       $(this).toggleClass('active');
     });
-    var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperBanner', {
+    var swiperBanner = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperBanner', {
       slidesPerView: 1,
       spaceBetween: 30,
       breakpoints: {
@@ -5416,12 +5416,12 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
         prevEl: ".swiper-button-prev"
       }
     });
-    var swiper2 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperPopular', {
+    var swiperPopular = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperPopular', {
       slidesPerView: 4,
       spaceBetween: 20,
       breakpoints: {
         320: {
-          slidesPerView: 1,
+          slidesPerView: 2,
           spaceBetween: 20
         },
         1080: {
@@ -5434,12 +5434,12 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
         prevEl: ".swiper-button-prev"
       }
     });
-    var swiper3 = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperNew', {
+    var swiperNew = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperNew', {
       slidesPerView: 4,
       spaceBetween: 20,
       breakpoints: {
         320: {
-          slidesPerView: 1,
+          slidesPerView: 2,
           spaceBetween: 20
         },
         1080: {
@@ -5496,17 +5496,74 @@ swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MOD
 
     $input.val(val);
   }); //фильтр
+  // $( "#slider-range" ).slider({
+  //     range: true,
+  //     min: 5000,
+  //     max: 75000,
+  //     values: [ 5000, 75000 ],
+  //     slide: function( event, ui ) {
+  //         $( "#amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+  //     }
+  // });
+  // $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+  //     " - " + $( "#slider-range" ).slider( "values", 1 ) );
+  //mobilka
 
-  $("#slider-range").slider({
-    range: true,
-    min: 5000,
-    max: 75000,
-    values: [5000, 75000],
-    slide: function slide(event, ui) {
-      $("#amount").val(ui.values[0] + " - " + ui.values[1]);
+  $('.menu-burger__header').click(function () {
+    $('.menu-burger__header').toggleClass('open-menu');
+    $('.header__nav').toggleClass('open-menu');
+    $('body').toggleClass('fixed-page');
+  });
+  var ProductRecomend = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperProductRecomend', {
+    slidesPerView: 3,
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      1080: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
     }
   });
-  $("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+  var ProductPopular = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiperProductPopular', {
+    slidesPerView: 3,
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      1080: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
+  var smallProductSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".swiperProductSmall", {
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true
+  });
+  var swiperProductMain = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".swiperProductMain", {
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    thumbs: {
+      swiper: smallProductSwiper
+    }
+  });
 })(jQuery);
 
 /***/ }),

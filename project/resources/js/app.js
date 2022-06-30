@@ -38,7 +38,7 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
             $(this).toggleClass('active');
         });
 
-        const swiper = new Swiper('.swiperBanner', {
+        const swiperBanner = new Swiper('.swiperBanner', {
             slidesPerView: 1,
             spaceBetween: 30,
             breakpoints: {
@@ -57,12 +57,12 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
             },
         })
 
-        const swiper2 = new Swiper('.swiperPopular', {
+        const swiperPopular = new Swiper('.swiperPopular', {
             slidesPerView: 4,
             spaceBetween: 20,
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 20
                 },
 
@@ -77,12 +77,12 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
             },
         })
 
-        const swiper3 = new Swiper('.swiperNew', {
+        const swiperNew = new Swiper('.swiperNew', {
             slidesPerView: 4,
             spaceBetween: 20,
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 20
                 },
 
@@ -140,17 +140,82 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
     });
 
     //фильтр
-    $( "#slider-range" ).slider({
-        range: true,
-        min: 5000,
-        max: 75000,
-        values: [ 5000, 75000 ],
-        slide: function( event, ui ) {
-            $( "#amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-        }
+    // $( "#slider-range" ).slider({
+    //     range: true,
+    //     min: 5000,
+    //     max: 75000,
+    //     values: [ 5000, 75000 ],
+    //     slide: function( event, ui ) {
+    //         $( "#amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+    //     }
+    // });
+    // $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+    //     " - " + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+    //mobilka
+    $('.menu-burger__header').click(function(){
+        $('.menu-burger__header').toggleClass('open-menu');
+        $('.header__nav').toggleClass('open-menu');
+        $('body').toggleClass('fixed-page');
     });
-    $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
-        " - " + $( "#slider-range" ).slider( "values", 1 ) );
+
+    const ProductRecomend = new Swiper('.swiperProductRecomend', {
+        slidesPerView: 3,
+        breakpoints: {
+            320: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+
+            1080: {
+                slidesPerView: 3,
+                spaceBetween: 15
+            }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    })
+
+    const ProductPopular = new Swiper('.swiperProductPopular', {
+        slidesPerView: 3,
+        breakpoints: {
+            320: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+
+            1080: {
+                slidesPerView: 3,
+                spaceBetween: 15
+            }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    })
+
+
+    var smallProductSwiper = new Swiper(".swiperProductSmall", {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    var swiperProductMain = new Swiper(".swiperProductMain", {
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: smallProductSwiper,
+        },
+    });
+
 
 })(jQuery);
 

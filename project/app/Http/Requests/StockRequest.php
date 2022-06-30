@@ -24,7 +24,7 @@ class StockRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'string',
         ];
     }
 }

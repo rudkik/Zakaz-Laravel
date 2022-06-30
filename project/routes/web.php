@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend;
 use App\Http\Controllers\Admin\AdminContact;
 use App\Http\Controllers\Admin\AdminStock;
-use App\Http\Controllers\Category;
-use App\Http\Controllers\Product;
+use App\Http\Controllers\Catalog;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Stocks;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Company;
+use App\Http\Controllers\Buy;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,12 @@ Route::get('/', [Frontend::class, 'index'])->name('main');
 
 Route::get('/company', [Company::class, 'index'])->name('company');
 Route::get('/contacts', [Contact::class, 'index'])->name('contacts');
-Route::get('/stocks', [Stocks::class, 'index'])->name('stocks');
+Route::get('/stocks/all', [Stocks::class, 'index'])->name('stocks-all');
+Route::get('/stocks/active', [Stocks::class, 'active'])->name('stocks-active');
+Route::get('/catalog', [Catalog::class, 'index'])->name('catalog');
+Route::get('/catalog/{categories_id}/product/{id}', [ProductController::class, 'index'])->name('product');
+Route::get('/basket', [Buy::class, 'basket'])->name('basket');
+Route::get('/payment', [Buy::class, 'payment'])->name('payment');
 
 //Multi
 //Route::get('/', [Frontend::class, 'index'])->name('index');

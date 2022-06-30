@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+    @include('popup_form')
 <main>
     <div class="banner">
         <div class="container">
@@ -18,19 +19,20 @@
                                     <div class="text">
                                         Официальный дилер АО «Костромской Завод Автокомпонентов»
                                     </div>
-                                    <a href="">ОБРАТНЫХ ЗВОНОК</a>
+                                    <a  data-toggle="modal" data-target="#exampleModal">ОБРАТНЫХ ЗВОНОК</a>
                                     <a href="">СМОТРЕТЬ КАТАЛОГ</a>
                                 </div>
-                                <img src="../images/slide.svg" alt="">
+                                <img src="../images/slide2.svg" alt="">
                             </div>
                             <div class="swiper-slide">
                                 <div class="slide">
                                     <div class="text">
-                                        2
+                                        Официальный дилер АО «Костромской Завод Автокомпонентов»
                                     </div>
-                                    <a href=""></a>
-                                    <a href=""></a>
+                                    <a href="">ОБРАТНЫХ ЗВОНОК</a>
+                                    <a href="">СМОТРЕТЬ КАТАЛОГ</a>
                                 </div>
+                                <img src="../images/slide.svg" alt="">
                             </div>
                             <div class="swiper-slide">
                                 <div class="slide">
@@ -50,7 +52,7 @@
                     <div class="bigpost">
                         <a href="/">
                             <p>Запчасти от производителя</p>
-                            <img src="../images/bigbanner.svg" alt="">
+                            <img src="../images/empty.svg" alt="">
                         </a>
                     </div>
                 </div>
@@ -511,6 +513,4 @@
         </div>
     </div>
 </main>
-
-
 @endsection

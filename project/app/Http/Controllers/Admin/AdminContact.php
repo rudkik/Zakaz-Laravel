@@ -18,14 +18,14 @@ class AdminContact extends Controller
     }
 
     public function contactNew(){
-        return view('admin.contact.contact_new');
+        return view('admin.contact.new');
     }
 
 
     public function contactUpdate($id){
         $contact = Contact::find($id);
 
-        return view('admin.contact.contact_update', [
+        return view('admin.contact.edit', [
             'contact' => $contact
         ]);
     }

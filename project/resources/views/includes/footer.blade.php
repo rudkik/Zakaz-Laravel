@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img class="logo-footer" src="../images/logo-footer.svg">
+                <img class="logo-footer" src="../../images/logo-footer.svg">
                 <ul>
                     <li><a href="{{route('main')}}" class="menu__item">Каталог</a></li>
                     <li><a href="{{route('main')}}" class="menu__item">Акции</a></li>
