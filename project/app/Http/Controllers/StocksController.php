@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
-class Stocks extends Controller
+class StocksController extends Controller
 {
     public function index(){
         $stocks = Stock::all();

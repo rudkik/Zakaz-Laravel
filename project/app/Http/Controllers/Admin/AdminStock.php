@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminStock extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth');
+    }
+
     public function index(){
         $stocks = Stock::all();
         return view('admin.stocks.stocks', [

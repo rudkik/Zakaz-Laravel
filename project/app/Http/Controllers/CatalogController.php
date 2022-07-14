@@ -6,13 +6,16 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class Catalog extends Controller
+class CatalogController extends Controller
 {
+
     public function index(){
         $category = Category::all();
+        $products = Product::all();
 
         return view('catalog', [
             'categories' => $category,
+            'products' => $products,
         ]);
     }
 

@@ -10,6 +10,11 @@ use App\Models\Contact;
 
 class AdminContact extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth');
+    }
+
     public function index(){
         $contacts = Contact::all();
         return view('admin.contact.contacts', [
