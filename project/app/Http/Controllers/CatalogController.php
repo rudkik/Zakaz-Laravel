@@ -10,21 +10,39 @@ class CatalogController extends Controller
 {
 
     public function index(){
-        $category = Category::all();
+        $categories = Category::all();
         $products = Product::all();
 
         return view('catalog', [
-            'categories' => $category,
+            'categories' => $categories,
             'products' => $products,
         ]);
     }
 
     public function category($id){
-        $category = Category::find($id);
 
         $products = Product::where('category_id', $id)->get();
         return view('category', [
-            'category' => $category,
+            'products' => $products,
+        ]);
+    }
+
+    public function search(Request $request){
+        $search = $request->search;
+
+        $products = Product::where('title', 'LIKE', "%{$search}%")->orderBy('title')->paginate(12);
+
+        return view('category', [
+            'products' => $products,
+        ]);
+    }
+
+    public function filter(Request $request){
+        $search = $request->search;
+
+        $products = Product::where('title', 'LIKE', "%{$search}%")->orderBy('title')->paginate(12);
+
+        return view('category', [
             'products' => $products,
         ]);
     }

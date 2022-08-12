@@ -2,7 +2,7 @@
 
 
 @section('title-page')
-    Contacts
+    Stocks
 @endsection
 
 @section('content')

@@ -2,7 +2,7 @@
 
 
 @section('title-page')
-    Contacts
+    Products
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Акции</h3>
+                    <h3 class="card-title">Продукты/Товары</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -51,10 +51,12 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{ $product->title }}</td>
-                                <td>{{ $product->new_string }}</td>
+                                <td>{{ $product->price }}</td>
                                 <td>{{ $product->availability }}</td>
-                                <td>{{ $product->category_id }}</td>
-                                <td> <img src="{{ Storage::url($product->image_uri) }}" alt=""></td>
+                                @foreach($categories as $category)
+                                    @if($product->category_id == $category->id) <td>  {{ $category->title  }}</td> @endif
+                                <td> <img style="max-width: 300px" src="{{ Storage::url($product->image_uri) }}" alt=""></td>
+                                @endforeach
                                 <td>
                                     <ul class="list-inline d-inline-flex">
                                         <li><a href="{{ route('admin-product-update', ['id' => $product->id ]) }}" class="btn btn-block btn-primary"><i class="fa fa-edit margin-r-5"></i> Изменить</a></li>

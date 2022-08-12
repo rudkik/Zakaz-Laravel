@@ -236,6 +236,7 @@ body{
                 display: flex;
                 align-items: center;
                 height: 80px;
+
                 @include respond-to(320){
                     display: none;
                 }
@@ -252,7 +253,75 @@ body{
                         }
                         &:hover{
                             transition: 1s;
-                            border: 1px solid #FFFFFF;
+                            background: #FFFFFF;
+                            a{
+                                color: #004889;
+                            }
+                            .dropdown{
+                                display: block;
+                            }
+                        }
+                        .dropdown{
+                            display: none;
+                            position: absolute;
+                            max-width: 1040px;
+                            background: #FFFFFF;
+                            border-radius: 0px 0px 20px 20px;
+                            margin-top: 7px;
+                            transform: translateX(-26px);
+                            padding: 25px 20px;
+                            z-index: 1;
+                            transition: 1s;
+                            .line{
+                                border: 1px solid #D1D1D1;
+                                width: 100%;
+                                margin-top: 25px;
+                                margin-bottom: 15px;
+                            }
+                            .categories{
+                                display: flex;
+                                flex-wrap: wrap;
+                                .categor{
+                                    margin-right: 15px;
+                                    margin-bottom: 15px;
+                                    padding: 14px 23px;
+                                    background: #E6EDFF;
+                                    border-radius: 5px;
+                                    display: flex;
+                                    align-items: center;
+                                    img{
+                                        height: 40px;
+                                        width: 40px;
+                                    }
+                                    a{
+                                        margin-left: 13px;
+                                        font-weight: 500;
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
+                            .products{
+                                display: flex;
+                                flex-wrap: wrap;
+                                .product{
+                                    max-width: 276px;
+                                    display: flex;
+                                    border: 1px solid #D1D1D1;
+                                    border-radius: 8px;
+                                    padding: 10px 5px;
+                                    margin-right: 50px;
+                                    margin-bottom: 30px;
+
+                                    img{
+                                        width: 50px;
+                                        height: 50px;
+                                    }
+                                    .title{
+                                        font-size: 16px;
+                                        margin-left: 10px;
+                                    }
+                                }
+                            }
                         }
                     }
                     &:nth-of-type(n+2){
@@ -400,6 +469,8 @@ body{
                     z-index: 10;
                     @include respond-to(320){
                         background: #E8F2FF;
+                        width: 17.84px;
+                        height: 27px;
                     }
                 }
                 .swiper-button-next{
@@ -412,6 +483,10 @@ body{
                         height: 22px;
                         background: url("../images/arrow-slide-black.svg");
                         transform: rotateZ(180deg);
+                        @include respond-to(320){
+                            width: 5.3px;
+                            height: 10.61px;
+                        }
                     }
 
                 }
@@ -424,6 +499,10 @@ body{
                         width: 11px;
                         height: 22px;
                         background: url("../images/arrow-slide-black.svg");
+                        @include respond-to(320){
+                            width: 5.3px;
+                            height: 10.61px;
+                        }
                     }
                 }
                 width: 914px;
@@ -478,8 +557,9 @@ body{
                 position: relative;
                 border-radius: 10px;
                 @include respond-to(320){
+                    margin-top: 15px;
                     width: 100%;
-                    height: 150px;
+                    height: 100%;
                     background: linear-gradient(360deg, #004889 0%, #33B1E7 100%);
                 }
                 &:hover {
@@ -496,10 +576,12 @@ body{
                     display: block;
                     @include respond-to(320){
                         background-image: url("../images/bigbanner-mob.svg");
-                        width: 100%;
-                        height: 100%;
                         background-repeat: no-repeat;
-
+                        width: 160px;
+                        height: 139px;
+                        bottom: 0;
+                        right: 0;
+                        position: absolute;
                     }
                 }
                 p{
@@ -511,7 +593,27 @@ body{
                     color: white;
                     z-index: 20;
                     @include respond-to(320){
+                        position: relative;
+                        padding: 31px 13px;
                         font-size: 20px;
+                        width: 180px;
+                    }
+                }
+            }
+            .smBanner{
+                @include respond-to(320){
+                    width: 50%;
+                    height: 172px;
+                    margin: 0 auto 10px;
+                    &:nth-child(3){
+                        width: 100%;
+                        height: 150px;
+                            a{
+                                img{
+                                    width: 220px;
+                                    height: 150px;
+                                }
+                            }
                     }
                 }
             }
@@ -522,6 +624,10 @@ body{
                 border-radius: 10px;
                 position: relative;
                 overflow: hidden;
+                @include respond-to(320){
+                    width: 100%;
+                    height: 100%;
+                }
                 &:hover {
                     img {
                         transform: scale(1.2);
@@ -532,14 +638,22 @@ body{
                     position: absolute;
                     bottom: 0;
                     right: 0;
+                    @include respond-to(320){
+                        width: 110px;
+                        height: 100px;
+                    }
                 }
                 p{
-                    position: absolute;
-                    top: 42px;
-                    left: 24px;
+                    position: relative;
+                    padding: 42px 28px;
                     font-weight: 700;
                     font-size: 30px;
                     color: black;
+                    @include respond-to(320){
+                        padding: 13px 18px;
+                        font-size: 18px;
+                        width: 120px;
+                    }
                 }
             }
         }
@@ -547,6 +661,7 @@ body{
             margin-top: 20px;
             @include respond-to(320){
                 margin-left: var(--bs-gutter-x, 0.75rem);
+                margin-right: var(--bs-gutter-x, 0.75rem);
             }
             .container{
                 border-radius: 20px;
@@ -586,6 +701,10 @@ body{
                 .product-item{
                     margin-left: 9px;
                     margin-bottom: 10px;
+                    @include respond-to(320){
+                        width: 48% !important;
+                        margin-left: auto;
+                    }
                 }
             }
             .more-catalog{
@@ -598,8 +717,16 @@ body{
                 font-weight: 500;
                 font-size: 20px;
                 color: #9E9E9E;
+                @include respond-to(320){
+                    height: 40px;
+                    font-size: 16px;
+                }
             }
             .filter{
+                @include respond-to(320){
+                    display: none;
+                }
+
                 h1{
                     font-weight: 700;
                     font-size: 20px;
@@ -610,50 +737,163 @@ body{
                     align-items: center;
                     justify-content: center;
                 }
-                .filter_price{
-                    .price-range-slider {
-                        width:100%;
-                        float:left;
-                        padding:10px 20px;
-                        .range-value {
-                            margin:0;
-                            input {
-                                width:100%;
-                                background:none;
-                                color: #000;
-                                font-size: 16px;
-                                font-weight: initial;
-                                box-shadow: none;
-                                border: none;
-                                margin: 20px 0 20px 0;
-                            }
-                        }
+                button{
+                    width: 100%;
+                    background: #004889;
+                    border-radius: 15px;
+                    color: white;
+                    font-size: 20px;
+                    text-align: center;
+                    height: 60px;
+                }
+                .filter_wrapper{
+                    border: 1px solid #CFCFCF;
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin-bottom: 5px;
+                    .price-title {
+                        position: relative;
+                        font-weight: 700;
+                        font-size: 16px;
+                    }
+                    .price-field {
+                        position: relative;
+                        width: 100%;
+                        height: 36px;
+                        box-sizing: border-box;
+                        padding-top: 15px;
+                        padding-left: 0px;
+                    }
 
-                        .range-bar {
-                            border: none;
-                            background: #000;
-                            height: 3px;
-                            width: 96%;
-                            margin-left: 8px;
+                    .price-field input[type=range] {
+                        position: absolute;
+                    }
 
-                            .ui-slider-range {
-                                background:#06b9c0;
-                            }
+                    /* Reset style for input range */
 
-                            .ui-slider-handle {
-                                border:none;
-                                border-radius:25px;
-                                background:#fff;
-                                border:2px solid #06b9c0;
-                                height:17px;
-                                width:17px;
-                                top: -0.52em;
-                                cursor:pointer;
-                            }
-                            .ui-slider-handle + span {
-                                background:#06b9c0;
-                            }
-                        }
+                    .price-field input[type=range] {
+                        width: 100%;
+                        height: 7px;
+                        outline: 0;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        pointer-events: none;
+                        -webkit-appearance: none;
+                    }
+
+                    .price-field input[type=range]::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                    }
+
+                    .price-field input[type=range]:active,
+                    .price-field input[type=range]:focus {
+                        outline: 0;
+                    }
+
+                    .price-field input[type=range]::-ms-track {
+                        width: 188px;
+                        height: 2px;
+                        border: 0;
+                        outline: 0;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        pointer-events: none;
+                        background: transparent;
+                        border-color: transparent;
+                        color: red;
+                        border-radius: 5px;
+                    }
+
+                    /* Style toddler input range */
+
+                    .price-field input[type=range]::-webkit-slider-thumb {
+                        /* WebKit/Blink */
+                        position: relative;
+                        -webkit-appearance: none;
+                        margin: 0;
+                        border: 0;
+                        outline: 0;
+                        border-radius: 50%;
+                        height: 10px;
+                        width: 10px;
+                        margin-top: -4px;
+                        background-color: #004889;
+                        cursor: pointer;
+                        pointer-events: all;
+                        z-index: 100;
+                    }
+
+
+                    /* Style track input range */
+
+                    .price-field input[type=range]::-webkit-slider-runnable-track {
+                        /* WebKit/Blink */
+                        width: 188px;
+                        height: 2px;
+                        cursor: pointer;
+                        background: #004889;
+                        border-radius: 5px;
+                    }
+
+                    /* Style for input value block */
+
+                    .price-wrap {
+                        display: flex;
+                        color: #242424;
+                        font-size: 14px;
+                        line-height: 1.2em;
+                        font-weight: 400;
+                        margin-bottom: 0px;
+                    }
+
+                    .price-wrap-1 {
+                        margin-right: auto;
+                    }
+
+                    .price-title {
+                        margin-right: 5px;
+                    }
+
+                    .price-wrap_line {
+                        margin: 6px 0px 5px 5px;
+                    }
+
+                    .price-wrap #one,
+                    .price-wrap #two {
+                        width: 30px;
+                        text-align: right;
+                        margin: 0;
+                        padding: 0;
+                        margin-right: 2px;
+                        background:  0;
+                        border: 0;
+                        outline: 0;
+                        color: #A7A7A7;
+                        font-family: 'Karla', 'Arial', sans-serif;
+                        font-size: 14px;
+                        line-height: 1.2em;
+                        font-weight: 400;
+                    }
+                    .price-wrap #one{
+                        text-align: left;
+                    }
+
+                    .price-wrap label {
+                        text-align: right;
+                        margin-top: 6px;
+                        padding-left: 5px;
+                    }
+
+                    /* Style for active state input */
+
+                    .price-field input[type=range]:hover::-webkit-slider-thumb {
+                        box-shadow: 0 0 0 1px #004889;
+                        transition-duration: 0.3s;
+                    }
+
+                    .price-field input[type=range]:active::-webkit-slider-thumb {
+                        box-shadow: 0 0 0 1px #242424;
+                        transition-duration: 0.3s;
                     }
                 }
             }
@@ -661,8 +901,15 @@ body{
         .forms{
             height: 300px;
             margin-top: 60px;
+            @include respond-to(320){
+                height: auto;
+            }
             .row{
                 height: 100%;
+                @include respond-to(320){
+                    width: 100%;
+                    margin: 0 auto;
+                }
             }
             .col-md-4{
                 background: linear-gradient(360deg, #004889 0%, #33B1E7 100%);
@@ -671,17 +918,31 @@ body{
                 border-radius: 20px;
                 padding-left: 29px;
                 padding-top: 56px;
+                @include respond-to(320){
+                    width: 100%;
+                    padding-top: 28px;
+                    padding-left: 14px;
+                    padding-bottom: 35px;
+                }
                 h1{
                     font-weight: 700;
                     font-size: 40px;
                     color: white;
                     margin-bottom: 20px;
+                    @include respond-to(320){
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
                 }
                 p{
                     font-weight: 400;
                     font-size: 20px;
                     color: white;
                     margin-bottom: 40px;
+                    @include respond-to(320){
+                        font-size: 16px;
+                        margin-bottom: 20px;
+                    }
                 }
                 form{
                     display: flex;
@@ -695,6 +956,9 @@ body{
                         color: white;
                         padding: 15px;
                         transition: 1s;
+                        @include respond-to(320){
+                            height: 30px;
+                        }
                         &:focus{
                             opacity: 1;
                             color: black;
@@ -708,6 +972,10 @@ body{
                         width: 111px;
                         background: white;
                         border-radius: 0 10px 10px 0;
+                        @include respond-to(320){
+                            height: 30px;
+                            color: white;
+                        }
                         &:before {
                             content: "";
                             background-image: url("../images/arrow-form.svg");
@@ -723,17 +991,33 @@ body{
                 border-radius: 20px;
                 padding-left: 52px;
                 padding-top: 56px;
+                @include respond-to(320){
+                    padding-left: 14px;
+                    padding-top: 33px;
+                    background: url("../images/form2.svg");
+                    height: 280px;
+                    margin-top: 15px;
+                }
                 h1{
                     font-weight: 700;
                     font-size: 40px;
                     color: black;
                     margin-bottom: 20px;
+                    @include respond-to(320){
+                        font-size: 20px;
+                        width: 165px;
+                    }
                 }
                 p{
                     font-weight: 500;
                     font-size: 16px;
                     color: black;
                     margin-bottom: 36px;
+                    @include respond-to(320){
+                        font-size: 14px;
+                        width: 194px;
+                        margin-bottom: 20px;
+                    }
                 }
                 a{
                     padding: 17px 25px;
@@ -742,6 +1026,12 @@ body{
                     color: white;
                     font-weight: 700;
                     font-size: 20px;
+                    @include respond-to(320){
+                        border-radius: 5px;
+                        padding: 11px 35px;
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -758,6 +1048,10 @@ body{
                     justify-content: center;
                     align-items: center;
                     z-index: 10;
+                    @include respond-to(320){
+                        width: 18px;
+                        height: 28px;
+                    }
                 }
                 .swiper-button-next{
                     position: absolute;
@@ -769,6 +1063,11 @@ body{
                         height: 22px;
                         background: url("../images/arrow-slide.svg");
                         transform: rotateZ(180deg);
+                        @include respond-to(320){
+                            width: 5px;
+                            height: 11px;
+                            background-size: 5px 11px;
+                        }
                     }
 
                 }
@@ -781,6 +1080,11 @@ body{
                         width: 11px;
                         height: 22px;
                         background: url("../images/arrow-slide.svg");
+                        @include respond-to(320){
+                            width: 5px;
+                            height: 11px;
+                            background-size: 5px 11px;
+                        }
                     }
                 }
             }
@@ -791,6 +1095,9 @@ body{
                 font-size: 40px;
                 color: black;
                 margin-bottom: 30px;
+                @include respond-to(320){
+                    font-size: 20px;
+                }
             }
             .product-item{
                 width: 335px;
@@ -801,32 +1108,54 @@ body{
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+                @include respond-to(320){
+                    width: 100% !important;
+                    height: 284px;
+                }
                 img{
-                    padding-top: 24px;
-                    padding-bottom: 14px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                     width: 165px;
                     height: 161px;
+                    @include respond-to(320){
+                        width: 77px;
+                        height: 75px;
+                    }
                 }
                 .name{
                     font-weight: 700;
                     font-size: 20px;
                     color: black;
+                    height: 75px;
                     padding-bottom: 15px;
+                    @include respond-to(320){
+                       font-size: 14px;
+                        width: 122px;
+                    }
                 }
                 .code{
                     font-weight: 400;
                     font-size: 16px;
                     padding-bottom: 25px;
+                    @include respond-to(320){
+                        font-size: 12px;
+                    }
                 }
                 .price{
                     font-weight: 700;
                     font-size: 25px;
                     color: #004889;
                     padding-bottom: 25px;
+                    @include respond-to(320){
+                       display: none;
+                    }
                 }
                 .buy{
                     padding-bottom: 20px;
                     display: flex;
+                    @include respond-to(320){
+                       padding-bottom: 5px;
+                    }
                     .number {
                         user-select: none;
                         position: relative;
@@ -837,6 +1166,9 @@ body{
                         display: inline-block;
                         border-radius: 10px;
                         margin-right: 32px;
+                        @include respond-to(320){
+                           display: none;
+                        }
                     }
                     .number-minus, .number-plus {
                         position: absolute;
@@ -892,6 +1224,11 @@ body{
                         justify-content: center;
                         align-items: center;
                         transition: 1s;
+                        @include respond-to(320){
+                            width: 133px;
+                            height: 30px;
+                            border-radius: 5px;
+                        }
                         &:hover{
                             background: white;
                             color: #004889;
@@ -909,6 +1246,11 @@ body{
                     justify-content: center;
                     align-items: center;
                     transition: 1s;
+                    @include respond-to(320){
+                        width: 133px!important;
+                        height: 30px;
+                        border-radius: 5px;
+                    }
                     &:hover{
                         background: #9E9E9E;
                         color: white;
@@ -927,6 +1269,9 @@ body{
                        font-size: 40px;
                        color: black;
                        margin-bottom: 30px;
+                       @include respond-to(320){
+                           font-size: 20px;
+                       }
                    }
                    .more{
                        margin-left: auto;
@@ -955,6 +1300,20 @@ body{
                     border-radius: 30px;
                     height: 333px;
                     position: relative;
+                    @include respond-to(320){
+                        width: 48%;
+                        height: 172px;
+                        margin: 0 auto;
+                        margin-bottom: 10px;
+                        &:nth-child(3){
+                            width: 98%;
+                            height: 150px;
+                            img{
+                                width: 125.28px;
+                                height: 104.17px;
+                            }
+                        }
+                    }
                     .procent{
                         margin-top: 37px;
                         margin-left: 38px;
@@ -967,6 +1326,9 @@ body{
                         align-items: center;
                         font-weight: 700;
                         font-size: 20px;
+                        @include respond-to(320){
+                            display: none;
+                        }
                     }
                     .name{
                         width: 248px;
@@ -975,19 +1337,36 @@ body{
                         font-size: 30px;
                         margin-top: 29px;
                         margin-right: 38px;
+                        @include respond-to(320){
+                            width: 100%;
+                            font-size: 16px;
+                            margin-left: 0;
+                            margin-right: 0;
+                            margin-top: 18px;
+                        }
                     }
                     .price{
                         margin-left: 38px;
                         display: flex;
                         color: #004889;
+                        @include respond-to(320){
+                            margin-left: 0;
+                            flex-direction: column;
+                        }
                         .new_price{
                             font-weight: 700;
                             font-size: 40px;
+                            @include respond-to(320){
+                                font-size: 20px;
+                            }
                         }
                         .old_price{
                             font-weight: 700;
                             font-size: 16px;
                             text-decoration-line: line-through;
+                            @include respond-to(320){
+                                font-size: 12px;
+                            }
                         }
                     }
                     img{
@@ -997,6 +1376,12 @@ body{
                         width: 129px;
                         height: 159px;
                         border-radius: 0 0 20px 0;
+                        @include respond-to(320){
+                            width: 82px;
+                            height: 82px;
+                            bottom: 0;
+                            right: 0;
+                        }
                     }
                 }
             }
@@ -1004,6 +1389,14 @@ body{
         .company{
             margin-top: 60px;
             .col-md-6{
+                .map{
+                    border-radius: 15px;
+                    @include respond-to(320){
+                        >ymaps{
+                            width: 100%!important;
+                        }
+                    }
+                }
                 h1{
                     font-weight: 700;
                     font-size: 40px;
@@ -1026,7 +1419,20 @@ body{
                         background: #004889;
                         color: white;
                     }
-
+                }
+                @include respond-to(320){
+                    p{
+                        font-size: 14px;
+                    }
+                    h1{
+                        font-size: 24px;
+                    }
+                    .more{
+                        width: 151px;
+                        height: 40px;
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                    }
                 }
             }
         }
@@ -1390,6 +1796,10 @@ body{
                         max-width: 571px;
                         max-height: 359px;
                         border-radius: 15px;
+                        @include respond-to(320){
+                            max-width: 319px;
+                            max-height: 200.56px;
+                        }
                     }
 
                 }
@@ -1406,6 +1816,10 @@ body{
                         max-width: 150px;
                         max-height: 95px;
                         border-radius: 15px;
+                        @include respond-to(320){
+                            width: 83.8px;
+                            height: 53.07px;
+                        }
                     }
 
                 }
@@ -1422,6 +1836,15 @@ body{
             .price{
                 font-weight: 700;
                 font-size: 60px;
+                @include respond-to(320){
+                    font-size: 40px;
+                }
+            }
+            .colum{
+                display: flex;
+                @include respond-to(320){
+                    flex-direction: column;
+                }
             }
             .available{
                 display: flex;
@@ -1531,6 +1954,12 @@ body{
                     background: #9E9E9E;
                     color: white;
                 }
+                @include respond-to(320){
+                    width: 100%;
+                    margin: 0;
+                    color: black;
+                    border: 1px solid #004889;
+                }
             }
             .character{
                 margin-top: 35px;
@@ -1544,24 +1973,44 @@ body{
                     text-align: center;
                     width: 210px;
                     margin-bottom: 20px;
+                    @include respond-to(320){
+                        padding: 12px 24px;
+                        border: 1px solid #004889;
+                        border-radius: 5px;
+                    }
                 }
             }
             .character_div{
                 border: 1px solid #9E9E9E;
                 border-radius: 20px;
                 padding: 20px 40px;
+                @include respond-to(320){
+                    padding: 0;
+                    margin: 0;
+                }
                 .col-md-6{
                     font-weight: 500;
                     font-size: 16px;
                     color: #9E9E9E;
-                    padding-bottom: 15px;
+                    @include respond-to(320){
+                        margin-top: 10px;
+                    }
                     &:nth-of-type(2n+2){
                         text-align: center;
+                        @include respond-to(320){
+                            text-align: start;
+                            font-weight: 400;
+                            margin-top: 0;
+                            padding-bottom: 15px;
+                        }
                     }
                 }
             }
             .stocks{
                 margin-bottom: 15px;
+                @include respond-to(320){
+                    display: none;
+                }
                 .stock{
                     margin-top: 0;
                     margin-bottom: 10px;
@@ -1630,6 +2079,9 @@ body{
             padding-top: 6px;
             padding-bottom: 31px;
             padding-right: 37px;
+            @include respond-to(320){
+                display: none;
+            }
             h1{
                 font-weight: 700;
                 font-size: 40px;
@@ -1679,9 +2131,13 @@ body{
             border-radius: 20px;
             height: 401px;
             margin-top: 119px;
+            @include respond-to(320){
+                display: none;
+            }
             img{
                 width: 97px;
                 height: 97px;
+                margin: 0 auto;
             }
             h1{
                 font-weight: 700;
@@ -1700,6 +2156,7 @@ body{
                 background: #004889;
                 border-radius: 10px;
                 color: #FFFFFF;
+                margin: 0 auto;
             }
         }
     }
@@ -1714,17 +2171,31 @@ body{
                 display: flex;
                 padding: 12px 15px;
                 margin-bottom: 15px;
+                @include respond-to(320){
+                    flex-wrap: wrap;
+                    height: 180px;
+                    position: relative;
+                }
                 img{
                     width: 121px;
                     height: 104px;
                     padding: 14px 10px;
                     border: 1px solid #D9D9D9;
                     border-radius: 10px;
+                    @include respond-to(320){
+                        width: 81px;
+                        height: 78px;
+                    }
                 }
                 .title{
                     font-weight: 700;
                     font-size: 20px;
                     margin-left: 22px;
+                    width: 378px;
+                    @include respond-to(320){
+                        font-size: 18px;
+                        width: 200px;
+                    }
                 }
                 .number {
                     user-select: none;
@@ -1737,6 +2208,9 @@ body{
                     border-radius: 10px;
                     margin-right: 32px;
                     margin-left: 15px;
+                    @include respond-to(320){
+                        margin-left: 0;
+                    }
                 }
                 .number-minus, .number-plus {
                     position: absolute;
@@ -1787,18 +2261,37 @@ body{
                     font-size: 20px;
                     margin-left: 23px;
                     letter-spacing: 0.02em;
+                    @include respond-to(320){
+                        margin-left: auto;
+                    }
+                }
+                .line{
+                    @include respond-to(320){
+                        background: #E8E8E8;
+                        width: 100%;
+                        margin: 0 auto;
+                        height: 1px;
+                    }
                 }
                 .delete{
                     background: url("../images/delete.svg");
                     height: 18px;
                     width: 17px;
                     margin-left: 65px;
+                    @include respond-to(320){
+                        position: absolute;
+                        top: 10px;
+                        right: 16px;
+                    }
                 }
             }
             .summa{
                 border: 1px solid #9E9E9E;
                 border-radius: 20px 20px 0 0;
                 padding: 30px 24px;
+                @include respond-to(320){
+                    border-bottom: none;
+                }
                 .count_product{
                     display: flex;
                     align-items: end;
@@ -1811,6 +2304,9 @@ body{
                         width: 48%;
                         margin-left: 10px;
                         margin-right: 10px;
+                        @include respond-to(320){
+                            width: 37%;
+                        }
                     }
                     .price{
                         font-weight: 700;
@@ -1844,6 +2340,10 @@ body{
                 border-radius: 0 0 20px 20px;
                 position: relative;
                 border: 1px solid #9E9E9E;
+                border-top: none;
+                @include respond-to(320){
+                    background: white;
+                }
                 h1{
                     margin: 0;
                     font-weight: 700;
@@ -1875,6 +2375,12 @@ body{
     .page-payment{
         .row{
             .col-md-9{
+                .colum{
+                    display: flex;
+                    @include respond-to(320){
+                        flex-direction: column;
+                    }
+                }
                 .delivery, .payments{
                     display: flex;
                     flex-direction: column;
@@ -1884,12 +2390,24 @@ body{
                     padding: 33px 38px;
                     margin-bottom: 20px;
                     margin-top: 30px;
+                    @include respond-to(320){
+                        width: 100%;
+                        margin-bottom: 15px;
+                        margin-top: 0;
+                    }
                     h1{
                         font-weight: 700;
                         font-size: 30px;
+                        @include respond-to(320){
+                            font-size: 20px;
+                        }
                     }
                     img{
                         margin-left: auto;
+                        @include respond-to(320){
+                            max-width: 69px;
+                            max-height: 69px;
+                        }
                     }
                     label{
                         display: flex;
@@ -1930,6 +2448,14 @@ body{
                 .delivery{
                     margin-right: auto;
                 }
+                .payments{
+                    img{
+                        @include respond-to(320){
+                            max-width: 45px;
+                            max-height: 45px;
+                        }
+                    }
+                }
                 .user{
                     .box{
                         width: 100%;
@@ -1938,6 +2464,17 @@ body{
                         border: 1px solid #D9D9D9;
                         border-radius: 15px;
                         padding: 37px 40px;
+                        h1{
+                            @include respond-to(320){
+                                font-size: 12px;
+                            }
+                        }
+                        img{
+                            margin-left: auto;
+                            @include respond-to(320){
+                                padding-bottom: 15px;
+                            }
+                        }
                     }
                     input{
                         width: 100%;
@@ -2000,10 +2537,18 @@ body{
                         align-items: center;
                         margin-left: auto;
                         margin-right: auto;
+                        @include respond-to(320){
+                            width: 100%;
+                        }
                     }
                     .agree{
                         justify-content: center;
                         text-align: center;
+                        @include respond-to(320){
+                            color: #282828;
+                            opacity: 0.6;
+                            font-size: 12px;
+                        }
                     }
                 }
             }
@@ -2013,6 +2558,10 @@ body{
                     border-radius: 15px;
                     padding: 22px 33px;
                     margin-top: 30px;
+                    @include respond-to(320){
+                        margin-top: 0;
+                        margin-bottom: 15px;
+                    }
                     .rows{
                         margin-top: 10px;
                         display: flex;

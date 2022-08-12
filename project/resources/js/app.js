@@ -12,8 +12,14 @@ import Swiper, {Navigation, Pagination, Autoplay, EffectFade, Thumbs} from 'swip
 Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
 
 (function ($) {
-
     $(document).ready(function () {
+
+        //mobilka
+        $('#menu-burger__header').click(function(){
+            $('.menu-burger__header').addClass('open-menu');
+
+        });
+
 
         // $('a[href^="#"]').bind('click.smoothscroll', function (e) {
         //     e.preventDefault();
@@ -83,7 +89,7 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
             breakpoints: {
                 320: {
                     slidesPerView: 2,
-                    spaceBetween: 20
+                    spaceBetween: 10
                 },
 
                 1080: {
@@ -152,13 +158,6 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
     // $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +
     //     " - " + $( "#slider-range" ).slider( "values", 1 ) );
 
-
-    //mobilka
-    $('.menu-burger__header').click(function(){
-        $('.menu-burger__header').toggleClass('open-menu');
-        $('.header__nav').toggleClass('open-menu');
-        $('body').toggleClass('fixed-page');
-    });
 
     const ProductRecomend = new Swiper('.swiperProductRecomend', {
         slidesPerView: 3,

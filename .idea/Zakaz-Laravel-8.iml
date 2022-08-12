@@ -118,6 +118,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/darryldecode/cart" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -12,42 +12,25 @@
             <div class="breadcrumbs">ГЛАВНАЯ - КАТАЛОГ</div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="product">
-                        <img src="../../images/product1.svg" alt="">
-                        <div class="title">Диск сцепления Камские Автомобили</div>
-                        <div class="number" data-step="1" data-min="1" data-max="100">
-                            <input class="number-text" type="text" name="count" value="1">
-                            <a href="#" class="number-minus">−</a>
-                            <a href="#" class="number-plus">+</a>
+                    <?php $products = \Cart::session($_COOKIE['cart_id'])->getContent() ?>
+                    @foreach($products as $product)
+                        <div class="product">
+                            <img src="" alt="">
+                            <div class="title">{{ $product->name }}</div>
+                            <div class="line"></div>
+                            <div class="number" data-step="1" data-min="1" data-max="100">
+                                <input class="number-text" type="text" name="count" value="{{ $product->quantity }}">
+                                <a href="#" class="number-minus">−</a>
+                                <a href="#" class="number-plus">+</a>
+                            </div>
+                            <div class="price">{{ $product->price }} ₽</div>
+                            <div class="delete"></div>
                         </div>
-                        <div class="price">4 368 ₽</div>
-                        <div class="delete"></div>
-                    </div>
+                    @endforeach
                     <div class="product">
                         <img src="../../images/product1.svg" alt="">
                         <div class="title">Диск сцепления Камские Автомобили</div>
-                        <div class="number" data-step="1" data-min="1" data-max="100">
-                            <input class="number-text" type="text" name="count" value="1">
-                            <a href="#" class="number-minus">−</a>
-                            <a href="#" class="number-plus">+</a>
-                        </div>
-                        <div class="price">4 368 ₽</div>
-                        <div class="delete"></div>
-                    </div>
-                    <div class="product">
-                        <img src="../../images/product1.svg" alt="">
-                        <div class="title">Диск сцепления Камские Автомобили</div>
-                        <div class="number" data-step="1" data-min="1" data-max="100">
-                            <input class="number-text" type="text" name="count" value="1">
-                            <a href="#" class="number-minus">−</a>
-                            <a href="#" class="number-plus">+</a>
-                        </div>
-                        <div class="price">4 368 ₽</div>
-                        <div class="delete"></div>
-                    </div>
-                    <div class="product">
-                        <img src="../../images/product1.svg" alt="">
-                        <div class="title">Диск сцепления Камские Автомобили</div>
+                        <div class="line"></div>
                         <div class="number" data-step="1" data-min="1" data-max="100">
                             <input class="number-text" type="text" name="count" value="1">
                             <a href="#" class="number-minus">−</a>
@@ -75,7 +58,7 @@
                             <div class="price">25 368 ₽</div>
                         </div>
                         <p>Сумма с учетом НДС</p>
-                        <a href="">Оформить заказ</a>
+                        <a href="{{ route('payment') }}">Оформить заказ</a>
                     </div>
                 </div>
             </div>
@@ -87,109 +70,25 @@
                     <div class="col-md-12">
                         <div class="swiper swiperPopular">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
+                                @foreach($products_popular as $product)
+                                    <div class="swiper-slide">
+                                        <div class="product-item">
+                                            <img src="{{ Storage::url($product->image_uri) }}" alt="">
+                                            <div class="name">{{ $product->title }}</div>
+                                            <div class="code">{{ $product->article }}</div>
+                                            <div class="price">{{ $product->price }} ₽</div>
+                                            <div class="buy">
+                                                <div class="number" data-step="1" data-min="1" data-max="100">
+                                                    <input class="number-text" type="text" name="count" value="1">
+                                                    <a href="#" class="number-minus">−</a>
+                                                    <a href="#" class="number-plus">+</a>
+                                                </div>
+                                                <a href="{{ route('product', ['categories_id' => $product->category_id, 'id' => $product->id,]) }}" class="button">КУПИТЬ</a>
                                             </div>
-                                            <div class="button">КУПИТЬ</div>
+                                            <a href="{{ route('product', ['categories_id' => $product->category_id, 'id' => $product->id,]) }}" class="more">ПОДРОБНЕЕ</a>
                                         </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
-                                            </div>
-                                            <div class="button">КУПИТЬ</div>
-                                        </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
-                                            </div>
-                                            <div class="button">КУПИТЬ</div>
-                                        </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
-                                            </div>
-                                            <div class="button">КУПИТЬ</div>
-                                        </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
-                                            </div>
-                                            <div class="button">КУПИТЬ</div>
-                                        </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-item">
-                                        <img src="../images/disk.svg" alt="">
-                                        <div class="name">Диск сцепления Камские Автомобили</div>
-                                        <div class="code">140-1601130</div>
-                                        <div class="price">35 175 ₽</div>
-                                        <div class="buy">
-                                            <div class="number" data-step="1" data-min="1" data-max="100">
-                                                <input class="number-text" type="text" name="count" value="1">
-                                                <a href="#" class="number-minus">−</a>
-                                                <a href="#" class="number-plus">+</a>
-                                            </div>
-                                            <div class="button">КУПИТЬ</div>
-                                        </div>
-                                        <div class="more">ПОДРОБНЕЕ</div>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>

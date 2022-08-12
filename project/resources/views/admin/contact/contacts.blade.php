@@ -10,7 +10,7 @@
                     <div class="col-ml-12">
                         <ul id="tab-status" class="nav nav-tabs pull-right ui-sortable-handle">
                             <li class="pull-left header">
-                                <a href="{{ route('admin-contacts-new') }}" class="btn bg-purple btn-flat pull-left margin-r-5">
+                                <a href="{{ route('admin-contact-new') }}" class="btn bg-purple btn-flat pull-left margin-r-5">
                                     <i class="fa fa-fw fa-plus"></i>
                                     Добавить контакт
                                 </a>

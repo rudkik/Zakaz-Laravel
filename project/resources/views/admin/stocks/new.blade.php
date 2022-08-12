@@ -2,7 +2,7 @@
 
 
 @section('title-page')
-    Contacts New
+    Stock New
 @endsection
 
 @section('content')
@@ -26,8 +26,8 @@
                     <input name="new_price"  id="new_price" type="text" class="form-control" value="">
                 </div>
                 <div class="form-group">
-                    <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active">
                     <label class="form-check-label" for="is_active">Активна</label>
+                    <input class="" type="checkbox" value="1" id="is_active" name="is_active">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Картинка</label>

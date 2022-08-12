@@ -10,7 +10,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\Buy;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Basket;
 use App\Http\Controllers\Admin\AdminCategory;
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +31,19 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 Route::get('/stocks/all', [StocksController::class, 'index'])->name('stocks-all');
 Route::get('/stocks/active', [StocksController::class, 'active'])->name('stocks-active');
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+Route::get('/search', [CatalogController::class, 'search'])->name('search');
+Route::get('/filter', [CatalogController::class, 'filter'])->name('filter');
 Route::get('/catalog/{id}', [CatalogController::class, 'category'])->name('catalog-categories');
 Route::get('/catalog/{categories_id}/product/{id}', [ProductController::class, 'index'])->name('product');
-Route::get('/basket', [Buy::class, 'basket'])->name('basket');
-Route::get('/payment', [Buy::class, 'payment'])->name('payment');
 
+Route::get('/basket', [Basket::class, 'basket'])->name('basket');
+Route::get('/payment', [Basket::class, 'payment'])->name('payment');
+Route::post('/add-to-basket',[Basket::class, 'addToBasket'])->name('add-to-basket');
+
+
+//Mail
+Route::post('mail/recall',[MailController::class, 'sendMailRecall'])->name('send-mail-recall');
+Route::post('mail/order',[MailController::class, 'sendMailOrder'])->name('send-mail-order');
 //Multi
 //Route::get('/', [Frontend::class, 'index'])->name('index');
 //Route::get('/', [Frontend::class, 'index'])->name('index');
@@ -50,8 +59,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/contacts', [AdminContact::class, 'index'])->name('admin-contacts');
-Route::get('/admin/contacts/new', [AdminContact::class, 'contactNew'])->name('admin-contacts-new');
-Route::post('/admin/contacts/create', [AdminContact::class, 'contactCreate'])->name('admin-contacts-create');
+Route::get('/admin/contacts/new', [AdminContact::class, 'contactNew'])->name('admin-contact-new');
+Route::post('/admin/contacts/create', [AdminContact::class, 'contactCreate'])->name('admin-contact-create');
 Route::get('/admin/contacts/{id}/update', [AdminContact::class, 'contactUpdate'])->name('admin-contact-update');
 Route::post('/admin/contacts/{id}/update', [AdminContact::class, 'contactUpdateSubmit'])->name('admin-contact-submit');
 Route::get('/admin/contacts/{id}/delete', [AdminContact::class, 'contactDelete'])->name('admin-contact-delete');
@@ -74,7 +83,7 @@ Route::get('/admin/category/{id}/delete', [AdminCategory::class, 'categoryDelete
 
 
 
-Route::get('/admin/product', [AdminProduct::class, 'index'])->name('admin-product');
+Route::get('/admin/product', [AdminProduct::class, 'index'])->name('admin-products');
 Route::get('/admin/product/new', [AdminProduct::class, 'productNew'])->name('admin-product-new');
 Route::post('/admin/product/create', [AdminProduct::class, 'productCreate'])->name('admin-product-create');
 Route::get('/admin/product/{id}/update', [AdminProduct::class, 'productUpdate'])->name('admin-product-update');

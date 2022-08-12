@@ -10,32 +10,30 @@
         <div class="container">
             <h1>О компании</h1>
             <div class="breadcrumbs">ГЛАВНАЯ - О КОМПАНИИ</div>
+            @foreach($contacts as $contact)
             <div class="row">
                 <div class="col-md-5">
-                    <h1>Филиал 1 ТЦ «АЛЬКОР»</h1>
+                    <h1>{{ $contact->title }}</h1>
                     <div class="adres">
                         <div class="h5">Адрес:</div>
-                        423806, Россия, Республика Татарстан, г. Набережные Челны,Казанский проспект 231
+                        {{ $contact->adres }}
                     </div>
                     <div class="phone">
                         <div class="h5">Телефоны: </div>
-                        (8552) 33-44-40, 33-00-80
+                        {{ $contact->phone }}
                     </div>
                     <div class="email">
                         <div class="h5">E-mail:</div>
-                        alkor_nch@mail.ru
+                        {{ $contact->email }}
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="map">
-                        <img src="../images/map.svg" alt="">
+                        {{ $contact->map }}
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-8"></div>
-            </div>
+            @endforeach
         </div>
     </main>
 

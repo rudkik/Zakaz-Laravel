@@ -11,7 +11,7 @@
         <div class="card-header">
             <h3 class="card-title">Создание Контактов</h3>
         </div>
-        <form action="{{ route('admin-contacts-create') }}" method="post">
+        <form action="{{ route('admin-contact-create') }}" method="post">
             @csrf
             <div class="card-body">
                 <div class="form-group">

@@ -2,7 +2,7 @@
 
 
 @section('title-page')
-    Contacts New
+    Category New
 @endsection
 
 @section('content')

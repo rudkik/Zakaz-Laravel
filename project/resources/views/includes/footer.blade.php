@@ -1,3 +1,4 @@
+@include('popup_form')
 <div class="footer">
     <div class="container">
         <div class="row">
@@ -29,8 +30,8 @@
                 <p>Почта:<br><br> alkor_nch@mail.ru</p>
             </div>
             <div class="col-md-3">
-                <a href="" class="forms">ЗАКАЗАТЬ ЗВОНОК</a>
-                <a href="" class="catalog">СМОТРЕТЬ КАТАЛОГ</a>
+                <a data-toggle="modal" data-target="#exampleModal" class="forms">ЗАКАЗАТЬ ЗВОНОК</a>
+                <a href="{{ route('catalog') }}" class="catalog">СМОТРЕТЬ КАТАЛОГ</a>
                 <p class="copyright">1996 - 2022 © ТЦ <br> «АЛЬКОР» в России</p>
             </div>
         </div>

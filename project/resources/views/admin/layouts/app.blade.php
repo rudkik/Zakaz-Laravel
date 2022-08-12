@@ -6,6 +6,8 @@
         <title>@yield('title-page')</title>
         <link rel="stylesheet" href="{{ url('../dist/css/adminlte.css') }}">
         <link rel="stylesheet" href="{{ url('../dist/css/all.css') }}">
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">

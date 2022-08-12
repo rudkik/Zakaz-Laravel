@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-
-
 use App\Models\Category;
-use Illuminate\Http\Request;
-use App\Http\Requests\StockRequest;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CategoryRequest;
 
 class AdminCategory extends Controller
 {
@@ -36,7 +33,7 @@ class AdminCategory extends Controller
         ]);
     }
 
-    public function categoryUpdateSubmit($id, StockRequest $request){
+    public function categoryUpdateSubmit($id, CategoryRequest $request){
         $category = Category::find($id);
 
         $category->title = $request->title;
@@ -55,7 +52,7 @@ class AdminCategory extends Controller
         return $this->index();
     }
 
-    public function categoryCreate(StockRequest $request){
+    public function categoryCreate(CategoryRequest $request){
 
         $category = new Category();
 
