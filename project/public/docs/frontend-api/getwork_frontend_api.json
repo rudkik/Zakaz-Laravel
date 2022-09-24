@@ -1,0 +1,328 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Alkor16 Frontend API",
+    "version": "1.0.0",
+    "title": "Alkor16 Frontend API",
+    "contact": {
+      "email": "rudnikr85@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://alkor16.ru",
+      "description": "Главный сервер"
+    }
+  ],
+  "tags": [
+    {
+      "name": "User",
+      "description": "Пользователь"
+    },
+    {
+      "name": "Pages",
+      "description": "Страницы"
+    },
+    {
+      "name": "Contacts",
+      "description": "Контакты"
+    },
+    {
+      "name": "Product",
+      "description": "Продукты"
+    },
+    {
+      "name": "Categories",
+      "description": "Категорий"
+    },
+    {
+      "name": "Stocks",
+      "description": "Акций"
+    },
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Авторизация",
+        "description": "Идентифицирует пользователя в системе и генерирует токен доступа.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Создан токен авторизации",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Выход",
+        "description": "Совершает выход из системы",
+        "responses": {
+          "200": {
+            "description": "Выход из системы"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/contacts": {
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Получения данных контактов",
+        "description": "Получение данных профиля контактов",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contacts"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/filter?{filter}": {
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Получение товаров по фильтрам",
+        "description": "Получение товаров по фильтрам",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "path",
+            "description": "Указать один из фильтров",
+            "content": {
+              "application/json": {}
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Contacts"
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "label": {
+                            "type": "string",
+                            "example": "&laquo; Previous"
+                          },
+                          "active": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "current_page": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 1
+                    },
+                    "next_page_url": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "per_page": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 15
+                    },
+                    "prev_page_url": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 4
+                    },
+                    "total": {
+                      "type": "integer",
+                      "format": "int32",
+                      "example": 4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/add-to-basket": {
+      "post": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Добавление товара в корзину",
+        "description": "Добавление товара в корзину",
+        "requestBody": {
+              "content": {
+                  "multipart/form-data": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "cart_id": {
+                                  "type": "string",
+                                  "description": "ID сессия(корзины)"
+                              },
+                              "product_id": {
+                                  "type": "string",
+                                  "description": "ID продукта"
+                              }
+                          }
+                      }
+                  }
+              },
+              "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddToCardSuccess"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginData": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Contacts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID пользователя",
+            "example": "1"
+          }
+        },
+        "xml": {
+          "name": "Profile"
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Contacts"
+          }
+        }
+      },
+      "AddToCardSuccess": {
+            "type": "object",
+            "properties": {
+                "id_card": {
+                    "type": "string",
+                    "description": "ID корзины(сессии/куки)",
+                    "example": "4"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Сообщение",
+                    "example": "Товар успешно добавлен"
+                }
+            }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

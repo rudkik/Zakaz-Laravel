@@ -113,6 +113,7 @@
       <path value="$PROJECT_DIR$/project/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/project/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/project/vendor/darryldecode/cart" />
+      <path value="$PROJECT_DIR$/project/vendor/shuchkin/simplexlsx" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
